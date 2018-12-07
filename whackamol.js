@@ -1,11 +1,3 @@
-//array of 10 "holes" 
-//each hole is either on or off
-//if "on" display a color
-//if clicked and on, score goes up
-
-//at random times boxes will be activated for a random time span
-
-
 var boxes;
 var boxSize;
 var boxLoc;
@@ -34,7 +26,7 @@ function setup() {
 			boxLoc.y = boxLoc.y + boxSize*2; 
 		}
 	}
-	console.log(boxes);
+	//console.log(boxes);
 }
 
 function getTimer() {
@@ -45,8 +37,11 @@ function getTimer() {
 	else if(score < 2500) {
 		retTimer = int(random(30,75));
 	}
-	else {
+	else if(score < 4000) {
 		retTimer = int(random(20,60));
+	}
+	else {
+		retTimer = int(random(20,40));
 	}
 	
 	return retTimer;
@@ -74,7 +69,7 @@ function draw() {
 		}
 		if(boxes[i].isActive) 
 		{
-			stroke(255);
+			//stroke(255);
 			fill(255,0,0);
 			rect(boxes[i].x,boxes[i].y,boxSize,boxSize);
 			boxes[i].timer = boxes[i].timer - 1;
