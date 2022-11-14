@@ -87,6 +87,7 @@ function draw() {
 }
 
 function mousePressed() {
+    let boxHit = false;
 	for(var i = 0; i < boxes.length; i++) 
 	{
 		if(mouseX > boxes[i].x - boxSize/2 && mouseX < boxes[i].x + boxSize/2) {
@@ -94,11 +95,16 @@ function mousePressed() {
 				if(boxes[i].isActive) {
 					//console.log("ACTIVE BOX CLICKED!");
 					score = score + 100;
+                    boxHit = true;
 					boxes[i].isActive = false;
 				}
 			}
 		}
 	}
+    if(!boxHit) 
+    {
+        score = score - 100;
+    }
 }
 
 class hitBox {
